@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="Main" Id="{81a6fecd-c30e-4692-97ac-6a3c2d401b99}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+	// XTES: 3 Axes
+	{attribute 'pytmc' := 'pv: TST:XTES:MMS'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7041]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[EL2004]^Channel 1^Output'}
+	M1: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: TST:XTES:CLZ'}
+	{attribute 'TcLinkTo' := '.bHome := TIIB[EL1088]^Channel 2^Input'}
+	M2: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: TST:XTES:CLF'}
+	{attribute 'TcLinkTo' := '.bHome := TIIB[EL1088]^Channel 4^Input'}
+	M3: DUT_MotionStage;
+	{attribute 'pytmc' := '
+		pv: TST:XTES
+		io: io
+	'}
+	{attribute 'TcLinkTo' := '.bZoomEndFwd := TIIB[EL1088]^Channel 1^Input;
+	                          .bZoomEndBwd := TIIB[EL1088]^Channel 2^Input;
+							  .bFocusEndFwd := TIIB[EL1088]^Channel 3^Input;
+							  .bFocusEndBwd := TIIB[EL1088]^Channel 4^Input;
+							  .fbOpal.bOpalPower := TIIB[EL2004]^Channel 2^Output'}
+	fbXPIM: FB_XPIM;
+	{attribute 'TcLinkTo' := '.Status := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Status;
+							  .D[0] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 0;
+							  .D[1] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 1;
+							  .D[2] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 2;
+							  .D[3] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 3;
+							  .D[4] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 4;
+							  .D[5] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 5;
+							  .D[6] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 6;
+							  .D[7] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 7;
+							  .D[8] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 8;
+							  .D[9] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 9;
+							  .D[10] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 10;
+							  .D[11] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 11;
+							  .D[12] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 12;
+							  .D[13] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 13;
+							  .D[14] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 14;
+							  .D[15] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 15;
+							  .D[16] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 16;
+							  .D[17] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 17;
+							  .D[18] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 18;
+							  .D[19] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 19;
+							  .D[20] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 20;
+							  .D[21] := TIIB[EL6002]^COM TxPDO-Map Inputs Channel 1^Data In 21'}
+	stEL6In AT %I*: EL6InData22b;
+	{attribute 'TcLinkTo' := '.Ctrl := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Ctrl;
+							  .D[0] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 0;
+							  .D[1] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 1;
+							  .D[2] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 2;
+							  .D[3] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 3;
+							  .D[4] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 4;
+							  .D[5] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 5;
+							  .D[6] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 6;
+							  .D[7] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 7;
+							  .D[8] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 8;
+							  .D[9] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 9;
+							  .D[10] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 10;
+							  .D[11] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 11;
+							  .D[12] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 12;
+							  .D[13] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 13;
+							  .D[14] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 14;
+							  .D[15] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 15;
+							  .D[16] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 16;
+							  .D[17] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 17;
+							  .D[18] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 18;
+							  .D[19] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 19;
+							  .D[20] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 20;
+							  .D[21] := TIIB[EL6002]^COM RxPDO-Map Outputs Channel 1^Data Out 21'}
+	stEL6Out AT %Q*: EL6OutData22b;
+	
+	M1_Extras: DUT_MotionStage_Extras;
+	M2_Extras: DUT_MotionStage_Extras;
+	M3_Extras: DUT_MotionStage_Extras;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbXPIM(
+	stYStage := M1,
+	stZoomStage := M2,
+	stFocusStage := M3,
+	stEL6In := stEl6In,
+	stEL6Out := stEL6Out,
+	fYag := -50,
+	fDiamond := -40,
+	fReticle := -30,
+	fOut := 0);
+	
+M1_Extras.bVisuHighLim := NOT M1.bAllForwardEnable;
+M1_Extras.bVisuLowLim := NOT M1.bAllBackwardEnable;
+M2_Extras.bVisuHighLim := NOT M2.bAllForwardEnable;
+M2_Extras.bVisuLowLim := NOT M2.bAllBackwardEnable;
+M3_Extras.bVisuHighLim := NOT M3.bAllForwardEnable;
+M3_Extras.bVisuLowLim := NOT M3.bAllBackwardEnable;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

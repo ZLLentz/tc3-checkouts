@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="Main" Id="{45c614b3-f146-4e23-9d5a-714c1ef31b78}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+	{attribute 'pytmc' := 'pv: TST:PPM:MMS'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[TST-EL7041]^STM Status^Status^Digital input 1;
+	                          .bLimitBackwardEnable := TIIB[TST-EL7041]^STM Status^Status^Digital input 2;
+	                          .bBrakeRelease        := TIIB[TST-EL2004]^Channel 1^Output'}
+	M1: DUT_MotionStage;
+	
+	{attribute 'pytmc' := '
+		pv: TST:PPM
+		io: io
+	'}
+	{attribute 'TcLinkTo' := '.fbGige.iIlluminatorINT := TIIB[TST-EL4004]^AO Outputs Channel 1^Analog output;
+	                          .fbGige.bGigePower := TIIB[TST-EL2004]^Channel 2^Output;
+							  .fbPowerMeter.iVoltageINT := TIIB[TST-EL3062]^AI Standard Channel 1^Value;
+							  .fbPowerMeter.fbThermoCouple.bError := TIIB[TST-EL3314]^TC Inputs Channel 1^Status^Error;
+							  .fbPowerMeter.fbThermoCouple.bUnderrange := TIIB[TST-EL3314]^TC Inputs Channel 1^Status^Underrange;
+							  .fbPowerMeter.fbThermoCouple.bOverrange := TIIB[TST-EL3314]^TC Inputs Channel 1^Status^Overrange;
+							  .fbPowerMeter.fbThermoCouple.iRaw := TIIB[TST-EL3314]^TC Inputs Channel 1^Value;
+							  .fbYagThermoCouple.bError := TIIB[TST-EL3314]^TC Inputs Channel 2^Status^Error;
+							  .fbYagThermoCouple.bUnderrange := TIIB[TST-EL3314]^TC Inputs Channel 2^Status^Underrange;
+							  .fbYagThermoCouple.bOverrange := TIIB[TST-EL3314]^TC Inputs Channel 2^Status^Overrange;
+							  .fbYagThermoCouple.iRaw := TIIB[TST-EL3314]^TC Inputs Channel 2^Value'}
+	fbPPM: FB_PPM;
+	
+	M1_Extras: DUT_MotionStage_Extras;
+	
+	iRawEncoder AT %I*: ULINT;
+	iAdjustedEncoder: ULINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbPPM(
+	stYStage := M1,
+	fPolished := -50,
+	fFrosted := -40,
+	fPower := -30,
+	fOut := -20);
+
+M1_Extras.bVisuHighLim := NOT M1.bAllForwardEnable;
+M1_Extras.bVisuLowLim := NOT M1.bAllBackwardEnable;
+	
+iAdjustedEncoder := LINT_TO_ULINT(-ULINT_TO_LINT(iRawEncoder));]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
