@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <Visu Name="VISU_MotionStage" Id="{f7de9cfd-6d88-430a-8070-305db7bc83b0}">
     <XmlArchive>
       <Data>
@@ -4067,7 +4067,7 @@ VisuMotionStage.bExecute := TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_56"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseDown</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -5853,7 +5853,7 @@ VisuMotionStage.bExecute := TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"VisuMotionStage.stAxisStatus.nErrorId"</v>
+                      <v n="Value">"VisuMotionStage.nErrorId"</v>
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
@@ -5895,18 +5895,16 @@ VisuMotionStage.bExecute := TRUE;"</v>
           <o n="GeneratedLMMDescriptions" t="GeneratedLanguageModelEntriesData">
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
-                <v>HasVisibilityAccess</v>
-                <v>05799a21-4154-4e0f-81a6-0ad89fe3d86e</v>
+                <v>GetUpdateRects</v>
+                <v>b317e0fe-434c-45b4-a42c-fbeecb9c9d56</v>
                 <v>ContainsPoint</v>
                 <v>b706aa7f-6a6e-4f85-83bd-20e7ab6e62a4</v>
-                <v>HasInputAccess</v>
-                <v>94304950-528d-496f-84a3-d043a39b183f</v>
+                <v>SetStaticState</v>
+                <v>1cd34188-07b1-4de7-9258-a4b795babd91</v>
                 <v>HasInputAccessIntern</v>
                 <v>46c2b1cc-f516-4c53-a1bf-806608c7fa9a</v>
                 <v>GetTooltip</v>
                 <v>db6851d8-90e8-4089-8f12-43b8806df828</v>
-                <v>GetUpdateRects</v>
-                <v>b317e0fe-434c-45b4-a42c-fbeecb9c9d56</v>
                 <v>GetNamespace</v>
                 <v>39a0db51-4830-4585-8afd-36a410cdfaba</v>
                 <v>GetTranslator</v>
@@ -5919,6 +5917,8 @@ VisuMotionStage.bExecute := TRUE;"</v>
                 <v>06dbdc60-6cee-4e8c-9a88-50f7d7d7da8e</v>
                 <v>Paint</v>
                 <v>11324d57-93e2-4c0d-b0c2-4e148ff12ab2</v>
+                <v>HasVisibilityAccess</v>
+                <v>05799a21-4154-4e0f-81a6-0ad89fe3d86e</v>
                 <v>GetElementArray</v>
                 <v>029a4cb9-f0d0-4ad0-b5d0-4b6d2424c80c</v>
                 <v>SetVisuFlagsInternal</v>
@@ -5929,14 +5929,14 @@ VisuMotionStage.bExecute := TRUE;"</v>
                 <v>30ba8cc0-9164-4eee-a32c-1f21048421ee</v>
                 <v>Initialize</v>
                 <v>b9899d81-1480-4c0b-9bca-8335fcf619e0</v>
+                <v>HasInputAccess</v>
+                <v>94304950-528d-496f-84a3-d043a39b183f</v>
                 <v>HasVisibilityAccessIntern</v>
                 <v>11aa918f-653a-4f19-9fb0-fe7c3d4e6752</v>
                 <v>GetSurroundingRect</v>
                 <v>b474e80f-3c8a-45ee-95b5-2853ca5e04c6</v>
                 <v>ElementInfo</v>
                 <v>dec52d4a-89c0-4d58-8add-4f147a33659e</v>
-                <v>SetStaticState</v>
-                <v>1cd34188-07b1-4de7-9258-a4b795babd91</v>
                 <v>GetLocalUsergroup</v>
                 <v>d529b423-e709-4a1b-9605-44a941e232e9</v>
                 <v>GetName</v>
@@ -5967,10 +5967,10 @@ VisuMotionStage.bExecute := TRUE;"</v>
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>f0e5f4a3-d458-48fa-b2c5-bede6841743b</v>
-                <v>FB_Exit</v>
-                <v>c07aad96-70dc-42ed-8427-1f5e3793ca6f</v>
                 <v>FB_Reinit</v>
                 <v>524e822e-cc49-4bc3-9fc8-67e0bdb739a1</v>
+                <v>FB_Exit</v>
+                <v>c07aad96-70dc-42ed-8427-1f5e3793ca6f</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{77787e81-a6b2-4a43-abb9-2fb26de678ff}</v>
@@ -6069,9 +6069,8 @@ VisuMotionStage.bExecute := TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.10.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
-        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -6080,7 +6079,7 @@ VisuMotionStage.bExecute := TRUE;"</v>
         <Type n="String">System.String</Type>
         <Type n="StructuredTypeNode">{503c5b2e-e80e-4ee7-ae00-c5b93a62b1aa}</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
-        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="TypeClass">{16f7aa24-038f-444e-9d81-b001bc091d35}</Type>
