@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{410fd8ab-d4e6-4749-9da0-aea69c9142cd}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
-    <Name>MicroTestStandPPM</Name>
+    <Name>MicroTestStandWFS</Name>
     <ProgramVersion>3.1.4020.5</ProgramVersion>
     <Application>{5c06fa8e-70b5-4d2e-ac72-42cf9b9ac345}</Application>
     <TypeSystem>{a8733575-4a3b-401f-a043-57cf0f47fb9a}</TypeSystem>
@@ -120,7 +120,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MicroTestStandPPM.tmc">
+    <None Include="MicroTestStandWFS.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>

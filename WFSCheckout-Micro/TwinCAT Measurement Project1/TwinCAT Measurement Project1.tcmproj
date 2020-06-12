@@ -6,7 +6,4 @@
     <Name>TwinCAT Measurement Project1</Name>
     <RootNamespace>TwinCAT Measurement Project1</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="C:\Users\zlentz\Documents\Visual Studio 2013\Projects\MicroTestStandPPM\TwinCAT Measurement Project1\Scope YT NC Project.tcscopex" />
-  </ItemGroup>
 </Project>
