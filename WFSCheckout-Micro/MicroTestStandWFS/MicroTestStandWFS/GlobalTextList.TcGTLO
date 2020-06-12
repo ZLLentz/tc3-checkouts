@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GlobalTextList Name="GlobalTextList" Id="{b04ff9cd-92e4-4361-be02-3c3e539c012c}">
     <XmlArchive>
       <Data>
@@ -73,6 +73,11 @@
             <o>
               <v n="TextID">"961"</v>
               <v n="TextDefault">"Deceleration: %f"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"324"</v>
+              <v n="TextDefault">"Encoder"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -191,8 +196,33 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"917"</v>
+              <v n="TextDefault">"Temp 1: %f C"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"256"</v>
+              <v n="TextDefault">"Temp 2: %f C"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"151"</v>
+              <v n="TextDefault">"Thermocouple Readbacks"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"958"</v>
               <v n="TextDefault">"Velocity: %f"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"562"</v>
+              <v n="TextDefault">"X Motor"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"568"</v>
+              <v n="TextDefault">"Y Motor"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
