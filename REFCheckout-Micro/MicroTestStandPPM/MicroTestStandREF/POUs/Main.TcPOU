@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="Main" Id="{cb921465-efa3-4bda-880b-e8f57acf61aa}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+	{attribute 'pytmc' := '
+        pv: TST:REF:MMS:01
+		io: io
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7041]^STM Status^Status^Digital input 1;
+	                          .bLimitBackwardEnable := TIIB[EL7041]^STM Status^Status^Digital input 2;
+	                          .bBrakeRelease        := TIIB[EL2004]^Channel 1^Output'}
+	M1: DUT_MotionStage;
+	M1_Extras: DUT_MotionStage_Extras;
+	
+	{attribute 'pytmc' := '
+		pv: TST:REF
+		io: io
+	'}
+	{attribute 'TcLinkTo' := '.fbLaser.iLaserINT := TIIB[EL4004]^AO Outputs Channel 1^Analog output;
+							  .fbLaser.iShutdownINT := TIIB[EL4004]^AO Outputs Channel 2^Analog output'}
+	fbREF: FB_REF;
+	
+	{attribute 'pytmc' := '
+		pv: TST:REF:MMS:01:ENC_RAW
+		io: i
+	'}
+	iAdjustedEncoder: UDINT;
+	iRawEncoder AT %I*: ULINT;
+	iMaxLINT: ULINT := 18446744073709551615;
+	
+	bLaserPower: BOOL;
+	
+	bStartup: BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbREF(stYStage := M1);
+M1.bHardwareEnable := TRUE;
+iAdjustedEncoder :=  ULINT_TO_UDINT(iMaxLINT - iRawEncoder);
+
+M1_Extras.bVisuHighLim := NOT M1.bAllForwardEnable;
+M1_Extras.bVisuLowLim := NOT M1.bAllBackwardEnable;
+
+IF bStartup THEN
+	bStartup := FALSE;
+	M1.fVelocity := 1;
+	M1.fAcceleration := 200;
+	M1.fDeceleration := 200;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
