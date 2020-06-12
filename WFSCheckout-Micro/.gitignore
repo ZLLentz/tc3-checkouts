@@ -1,0 +1,29 @@
+# Twincat ignores
+_Boot
+_Libraries
+_CompileInfo
+*.suo
+*~
+*.tpy
+*.bak
+*.~u
+TrialLicense.tclrs
+*.library
+*.tmcRefac
+*.dbg
+*.imgcache
+
+# EPICS ignores
+O.*
+archive
+autosave
+bin
+build
+db
+dbd
+
+# Vim ignores
+*.swp
+
+# Output from scope ignores
+*.csv
