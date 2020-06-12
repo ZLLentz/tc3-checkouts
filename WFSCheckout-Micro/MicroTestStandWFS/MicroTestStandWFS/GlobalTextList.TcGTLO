@@ -230,6 +230,11 @@
               <v n="TextDefault">"Yag Temp: %f C"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
+            <o>
+              <v n="TextID">"824"</v>
+              <v n="TextDefault">"Z Motor"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
           </l>
           <l n="Languages" t="ArrayList" />
           <v n="GuidInit">{8174a8c3-98f5-41a5-9548-4b78951b42ea}</v>

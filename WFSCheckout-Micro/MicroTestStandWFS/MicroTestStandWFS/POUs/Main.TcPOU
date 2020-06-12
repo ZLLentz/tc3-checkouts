@@ -40,7 +40,7 @@ END_VAR
       <ST><![CDATA[fbWFS(
     stYStage := M1,
     stZStage := M2);
-iM1AdjustedEncoder := ULINT_TO_UDINT(iMaxLINT - iM1RawEncoder);
+iM1AdjustedEncoder := ULINT_TO_UDINT(iMaxLINT - iM1RawEncoder) + 1;
 iM2AdjustedEncoder := ULINT_TO_UDINT(iM2RawEncoder);
 
 M1_Extras.bVisuHighLim := NOT M1.bAllForwardEnable;
