@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "MicroTestStandWFS", "MicroTestStandPPM\MicroTestStandWFS.tsproj", "{8198C3E5-33C5-4675-8605-4FBA85C32007}"
+Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "MicroTestStandWFS", "MicroTestStandWFS\MicroTestStandWFS.tsproj", "{8198C3E5-33C5-4675-8605-4FBA85C32007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
