@@ -9,9 +9,6 @@ VAR
 	M1: DUT_MotionStage;
 	M1_Extras: DUT_MotionStage_Extras;
     
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7041-Z]^STM Status^Status^Digital input 1;
-	                          .bLimitBackwardEnable := TIIB[EL7041-Z]^STM Status^Status^Digital input 2;
-	                          .bBrakeRelease        := TIIB[EL2004]^Channel 2^Output'}
 	M2: DUT_MotionStage;
 	M2_Extras: DUT_MotionStage_Extras;
 	
