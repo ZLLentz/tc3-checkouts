@@ -898,7 +898,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{410FD8AB-D4E6-4749-9DA0-AEA69C9142CD}" Name="MicroTestStandATM" PrjFilePath="..\..\MicroTestStandATM\MicroTestStandATM.plcproj" TmcFilePath="..\..\MicroTestStandATM\MicroTestStandATM.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MicroTestStandWFS\MicroTestStandWFS.tmc">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MicroTestStandATM\MicroTestStandATM.tmc">
 			<Name>MicroTestStandATM Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1258,8 +1258,8 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.fbWFS.fbThermoCouple2.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL5042">
-				<Link VarA="PlcTask Inputs^Main.iM1RawEncoder" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.iM2RawEncoder" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.iM1RawEncoder" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.iM2RawEncoder" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL7041-Y">
 				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>

@@ -23,11 +23,11 @@ VAR
 	fbWFS: FB_WFS;
 	
 
-    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 2^Position'}
+    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 1^Position'}
 	iM1RawEncoder AT %I*: ULINT;
 	iM1AdjustedEncoder: UDINT;
     
-    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 1^Position'}
+    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 2^Position'}
     iM2RawEncoder AT %I*: ULINT;
     iM2AdjustedEncoder: UDINT;
     

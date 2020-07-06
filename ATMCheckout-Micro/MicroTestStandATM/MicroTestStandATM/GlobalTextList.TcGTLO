@@ -206,6 +206,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"865"</v>
+              <v n="TextDefault">"Thermocouple Readback"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"151"</v>
               <v n="TextDefault">"Thermocouple Readbacks"</v>
               <l n="LanguageTexts" t="ArrayList" />
