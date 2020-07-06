@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="Main" Id="{cb921465-efa3-4bda-880b-e8f57acf61aa}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7041-Y]^STM Status^Status^Digital input 1;
+	                          .bLimitBackwardEnable := TIIB[EL7041-Y]^STM Status^Status^Digital input 2;
+	                          .bBrakeRelease        := TIIB[EL2004]^Channel 1^Output'}
+	M1: DUT_MotionStage;
+	M1_Extras: DUT_MotionStage_Extras;
+    
+	M2: DUT_MotionStage;
+	M2_Extras: DUT_MotionStage_Extras;
+	
+	{attribute 'TcLinkTo' := '.fbThermoCouple1.bError := TIIB[EL3314]^TC Inputs Channel 1^Status^Error;
+							  .fbThermoCouple1.bUnderrange := TIIB[EL3314]^TC Inputs Channel 1^Status^Underrange;
+							  .fbThermoCouple1.bOverrange := TIIB[EL3314]^TC Inputs Channel 1^Status^Overrange;
+							  .fbThermoCouple1.iRaw := TIIB[EL3314]^TC Inputs Channel 1^Value;
+							  .fbThermoCouple2.bError := TIIB[EL3314]^TC Inputs Channel 2^Status^Error;
+							  .fbThermoCouple2.bUnderrange := TIIB[EL3314]^TC Inputs Channel 2^Status^Underrange;
+							  .fbThermoCouple2.bOverrange := TIIB[EL3314]^TC Inputs Channel 2^Status^Overrange;
+							  .fbThermoCouple2.iRaw := TIIB[EL3314]^TC Inputs Channel 2^Value'}
+	fbWFS: FB_WFS;
+	
+
+    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 2^Position'}
+	iM1RawEncoder AT %I*: ULINT;
+	iM1AdjustedEncoder: UDINT;
+    
+    {attribute 'TcLinkTo' := 'TIIB[EL5042]^FB Inputs Channel 1^Position'}
+    iM2RawEncoder AT %I*: ULINT;
+    iM2AdjustedEncoder: UDINT;
+    
+	iMaxLINT: ULINT := 18446744073709551615;
+	
+	bStartup: BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbWFS(
+    stYStage := M1,
+    stZStage := M2);
+iM1AdjustedEncoder := ULINT_TO_UDINT(iMaxLINT - iM1RawEncoder) + 1;
+iM2AdjustedEncoder := ULINT_TO_UDINT(iM2RawEncoder);
+
+M1_Extras.bVisuHighLim := NOT M1.bAllForwardEnable;
+M1_Extras.bVisuLowLim := NOT M1.bAllBackwardEnable;
+M2_Extras.bVisuHighLim := NOT M2.bAllForwardEnable;
+M2_Extras.bVisuLowLim := NOT M2.bAllBackwardEnable;
+
+IF bStartup THEN
+	bStartup := FALSE;
+	M1.fVelocity := 20;
+	M1.fAcceleration := 10;
+	M1.fDeceleration := 10;
+	M2.fVelocity := 5;
+	M2.fAcceleration := 10;
+	M2.fDeceleration := 50;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
