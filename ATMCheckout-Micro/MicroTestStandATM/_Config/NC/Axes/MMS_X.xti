@@ -1331,7 +1331,6 @@ External Setpoint Generation:
 		<Encoder Name="Enc" EncType="29">
 			<EncPara ScaleFactorNumerator="5e-05" MaxCount="#xffffffff" ReferenceSystem="1">
 				<Inc RefSoftSyncMask="#x0000ffff"/>
-				<ParameterChanged>25</ParameterChanged>
 			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1373,7 +1372,7 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
-			<DrvPara Inverse="true">
+			<DrvPara>
 				<Analog VeloReferenz="15.875" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
@@ -1464,7 +1463,8 @@ Drive Status 4 (manually linked):
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PosDiffControl Range="1"/>
+				<PosDiffControl Enable="false" Range="1"/>
+				<PID PosKp="0"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
