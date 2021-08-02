@@ -57,6 +57,10 @@
       <DefaultResolution>lcls2-cc-lib, * (SLAC)</DefaultResolution>
       <Namespace>lcls2_cc_lib</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="PMPS">
+      <DefaultResolution>PMPS, * (SLAC - LCLS)</DefaultResolution>
+      <Namespace>PMPS</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="System_VisuElemMeter">
       <DefaultResolution>VisuElemMeter, 3.5.10.0 (System)</DefaultResolution>
       <Namespace>VisuElemMeter</Namespace>
@@ -120,22 +124,25 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MicroTestStandWFS.tmc">
-      <SubType>Content</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <PlaceholderResolution Include="lcls-twincat-motion">
-      <Resolution>lcls-twincat-motion, 0.0.0 (SLAC)</Resolution>
+      <Resolution>lcls-twincat-motion, 1.5.1 (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="lcls2-cc-lib">
-      <Resolution>lcls2-cc-lib, * (SLAC)</Resolution>
+      <Resolution>lcls2-cc-lib, 1.1.2 (SLAC)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="PMPS">
+      <Resolution>PMPS, 2.0.0 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>
     <LibraryReference Include="VisuSymbols,3.5.10.0,System">
       <Namespace>VisuSymbols</Namespace>
     </LibraryReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MicroTestStandWFS.tmc">
+      <SubType>Content</SubType>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

@@ -34,12 +34,28 @@ VAR
 	iMaxLINT: ULINT := 18446744073709551615;
 	
 	bStartup: BOOL := TRUE;
+    
+    // PMPS Machinery
+    fbArbiterIO: FB_SubSysToArbiter_IO;
+    {attribute 'pytmc' := 'pv: PLC:TST:MOT:ARB'}
+    fbArbiter: FB_Arbiter(1);
+    {attribute 'pytmc' := 'pv: PLC:TST:MOT:FFO:01'}
+    fbFFHWO: FB_HardwareFFOutput := (bAutoReset := TRUE);
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbWFS(
     stYStage := M1,
-    stZStage := M2);
+    stZStage := M2,
+    fbArbiter := fbArbiter,
+    fbFFHWO:=fbFFHWO);
+
+fbFFHWO.Execute();
+fbArbiterIO(
+    Arbiter:=fbArbiter,
+    fbFFHWO:=fbFFHWO);
+
+
 iM1AdjustedEncoder := ULINT_TO_UDINT(iMaxLINT - iM1RawEncoder) + 1;
 iM2AdjustedEncoder := ULINT_TO_UDINT(iM2RawEncoder);
 

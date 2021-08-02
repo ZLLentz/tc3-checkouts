@@ -1177,31 +1177,14 @@ External Setpoint Generation:
 	<Mappings>
 		<OwnerA Name="MicroTestStandPPM Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL2004">
-				<Link VarA="PlcTask Outputs^Main.M1.bBrakeRelease" VarB="Channel 1^Output"/>
-				<Link VarA="PlcTask Outputs^Main.fbPPM.fbGige.bGigePower" VarB="Channel 2^Output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL3062">
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbPowerMeter.iVoltageINT" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL3314">
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbPowerMeter.fbThermoCouple.bError" VarB="TC Inputs Channel 1^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbPowerMeter.fbThermoCouple.bOverrange" VarB="TC Inputs Channel 1^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbPowerMeter.fbThermoCouple.bUnderrange" VarB="TC Inputs Channel 1^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbPowerMeter.fbThermoCouple.iRaw" VarB="TC Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbYagThermoCouple.bError" VarB="TC Inputs Channel 2^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbYagThermoCouple.bOverrange" VarB="TC Inputs Channel 2^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbYagThermoCouple.bUnderrange" VarB="TC Inputs Channel 2^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^Main.fbPPM.fbYagThermoCouple.iRaw" VarB="TC Inputs Channel 2^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL4004">
-				<Link VarA="PlcTask Outputs^Main.fbPPM.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^Main.M1.bBrakeRelease" VarB="Channel 1^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL5042">
 				<Link VarA="PlcTask Inputs^Main.iRawEncoder" VarB="FB Inputs Channel 1^Position"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100^EL7041">
-				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2"/>
-				<Link VarA="PlcTask Inputs^Main.M1.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1"/>
+				<Link VarA="PlcTask Inputs^Main.M1.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M1.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^MMS_Y">
 				<Link VarA="PlcTask Inputs^Main.M1.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
